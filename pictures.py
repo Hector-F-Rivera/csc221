@@ -1,7 +1,7 @@
 from gasp import *
 begin_graphics()
 Line((290, 190), (310, 190))
-Circle((300, 200), 40)
+Circle((320,240), 220)
 Line((290, 190), (300,210))
 for r in 285,315:
     Circle((r, 210), 5)
