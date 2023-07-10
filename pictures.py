@@ -8,5 +8,9 @@ for r in 239,401:
 Arc((320, 240), 150, 280, 320)
 for r in 239, 401:
     Arc((r,286,),40,25,155)
+def moan():
+    print("Python is useless")
+    print("And so are these worksheets.")
+moan()
 update_when('key_pressed')
 end_graphics()
