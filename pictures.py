@@ -1,13 +1,15 @@
 from gasp import *
-begin_graphics()
-Line((266, 194), (364, 194))
-Circle((320,240), 220)
-Line((266, 194), (320,286))
-for r in 239,401:
-    Circle((r, 286), 28)
-Arc((320, 240), 150, 280, 320)
-for r in 239, 401:
-    Arc((r,286,),40,25,155)
+def faced(x,y):
+    begin_graphics()
+    Line((x-54, y-46), (x+54, y-46))
+    Circle((x,y), 220)
+    Line((x-54, y-46), (x,y+46))
+    for r in x-81,x+81:
+        Circle((r, y+46), 28)
+    Arc((x, y), 150, 280, 320)
+    for r in x-81, x+81:
+        Arc((r,y+46,),40,25,155)
+faced(320,240)
 def moan():
     print("Python is useless")
     print("And so are these worksheets.")
