@@ -9,7 +9,11 @@ def faced(x,y):
     Arc((x, y), 150, 280, 320)
     for r in x-81, x+81:
         Arc((r,y+46,),40,25,155)
-faced(320,240)
+q = "Enter the X value."
+x = int(input(q))
+qt = "Enter the y value"
+y = int(input(q))
+faced(x,y)
 def moan():
     print("Python is useless")
     print("And so are these worksheets.")
