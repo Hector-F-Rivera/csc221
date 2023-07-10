@@ -7,6 +7,6 @@ for r in 239,401:
     Circle((r, 286), 28)
 Arc((320, 240), 150, 280, 320)
 for r in 239, 401:
-    Arc((r,286,),45,0,180)
+    Arc((r,286,),40,25,155)
 update_when('key_pressed')
 end_graphics()
