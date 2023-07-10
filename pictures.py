@@ -12,5 +12,8 @@ def moan():
     print("Python is useless")
     print("And so are these worksheets.")
 moan()
+def Square(x):
+    print(x, 'times', x, 'is', x * x)
+Square(3)
 update_when('key_pressed')
 end_graphics()
