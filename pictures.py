@@ -9,11 +9,12 @@ def faced(x,y):
             Line((e-7, y-6), (e+7, y-6))
             Circle((e,y), 28)
             Line((e-7, y-6), (e,y+6))
-            for r in x-10,x+10:
+            for r in e-10,e+10:
                 Circle((r, y+3), 3)
             Arc((e, y), 19, 280, 320)
             for r in e-10, e+10:
                 Arc((r,y+6,),5,25,155)
+    eyed(x,y+46)
     Arc((x, y), 150, 280, 320)
     for r in x-81, x+81:
         Arc((r,y+46,),40,25,155)
