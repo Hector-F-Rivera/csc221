@@ -5,7 +5,7 @@ def faced(x,y):
     Circle((x,y), 220)
     Line((x-54, y-46), (x,y+46))
     def eyed(x,y):
-        for e in x-81,x+81:
+        for e in x-81,x+81,x+162,x-162:
             Line((e-7, y-6), (e+7, y-6))
             Circle((e,y), 28)
             Line((e-7, y-6), (e,y+6))
@@ -21,7 +21,7 @@ def faced(x,y):
 q = "Enter the X value."
 x = int(input(q))
 qt = "Enter the y value"
-y = int(input(q))
+y = int(input(qt))
 faced(x,y)
 def moan():
     print("Python is useless")
