@@ -2,15 +2,15 @@ from gasp import *
 def faced(x,y):
     begin_graphics()
     Line((x-54, y-46), (x+54, y-46))
-    Circle((x,y), 220)
+    Circle((x,y), 220,color="blue",filled=True)
     Line((x-54, y-46), (x,y+46))
     def eyed(x,y):
         for e in x-81,x+81,x+56,x-56:
             Line((e-7, y-6), (e+7, y-6))
-            Circle((e,y), 28)
+            Circle((e,y), 28, color="red",filled=True)
             Line((e-7, y-6), (e,y+6))
             for r in e-10,e+10:
-                Circle((r, y+3), 3)
+                Circle((r, y+3), 3, color="blue",filled=True)
             Arc((e, y), 19, 280, 320)
             for r in e-10, e+10:
                 Arc((r,y+6,),5,25,155)
