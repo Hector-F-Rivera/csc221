@@ -23,8 +23,6 @@ x = int(input(q))
 qt = "Enter the y value"
 y = int(input(q))
 faced(x,y)
-faced(x+440,y)
-faced(x-440,y)
 def moan():
     print("Python is useless")
     print("And so are these worksheets.")
