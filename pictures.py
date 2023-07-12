@@ -5,7 +5,7 @@ def faced(x,y):
     Circle((x,y), 220)
     Line((x-54, y-46), (x,y+46))
     def eyed(x,y):
-        for e in x-81,x+81,x+162,x-162:
+        for e in x-81,x+81,x+56,x-56:
             Line((e-7, y-6), (e+7, y-6))
             Circle((e,y), 28)
             Line((e-7, y-6), (e,y+6))
