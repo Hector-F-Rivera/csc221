@@ -4,7 +4,7 @@ game = 1
 while game == 1:
     stop = 0
     guesses = 0
-    cans = randint(1, 1000)
+    cans = 770
     q = "I'm thinking of a number between 1 and 1,000 what is it? :"
     while stop == 0:
         a = int(input(q))
@@ -20,7 +20,7 @@ while game == 1:
                 if a > cans:
                     print("Too high")
                     guesses = guesses + 1
-    print("You made "+guesses+" number of guesses!")
+    print("You took " + str(guesses) + " guesses!")
     if read_yesorno("Would you like to play again?"):
         game = game + 1
     else:
