@@ -1,0 +1,19 @@
+from random import randint
+game = 1
+while game == 1:
+    stop = 0
+    guesses = 0
+    cans = randint(1, 1000)
+    q = "I'm thinking of a number between 1 and 1,000 what is it?"
+    a = int(input(q))
+    while stop == 0:
+        if a == cans:
+            print("Correct, you win!")
+        else:
+            if a < cans:
+                print("Too low")
+            else:
+                if a > cans:
+                    print("Too high")
+
+        
