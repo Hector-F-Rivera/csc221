@@ -1,7 +1,7 @@
 from gasp.utils import read_yesorno
 from random import randint
-read_yesorno = True
-while read_yesorno == True:
+game = 1
+while game == 1:
     stop = 0
     guesses = 0
     cans = randint(1, 1000)
@@ -21,11 +21,9 @@ while read_yesorno == True:
                     print("Too high, try again")
                     guesses = guesses + 1
     print("You took " + str(guesses) + " guesses!")
-    yon = read_yesorno('Would you like another game? ')
-    ans = str(input(yon))
-    if yon == True:
-        print("Again!")
+    if read_yesorno("Would you like to play again?"):
+        game = game
     else:
-        print ("Thank you for playing!")
-
+        game = game + 1
+        print("Thank you for playing")
         
