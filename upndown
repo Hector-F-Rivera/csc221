@@ -8,21 +8,26 @@ while game == 1:
     q = "I'm thinking of a number between 1 and 1,000 what is it? :"
     while stop == 0:
         a = int(input(q))
+        print(" ")
         if a == cans:
             print("Correct, you win!")
             stop = stop + 1
             guesses = guesses + 1
+            print(" ")
         else:
             if a < cans:
                 print("Too low, try again")
                 guesses = guesses + 1
+                print(" ")
             else:
                 if a > cans:
                     print("Too high, try again")
                     guesses = guesses + 1
+                    print(" ")
     print("You took " + str(guesses) + " guesses!")
     if read_yesorno("Would you like to play again?"):
         game = game
+        print(" ")
     else:
         game = game + 1
         print("Thank you for playing")
