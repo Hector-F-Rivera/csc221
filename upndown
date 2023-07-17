@@ -1,10 +1,10 @@
 from gasp.utils import read_yesorno
 from random import randint
-game = 1
-while game == 1:
+read_yesorno = True
+while read_yesorno == True:
     stop = 0
     guesses = 0
-    cans = 770
+    cans = randint(1, 1000)
     q = "I'm thinking of a number between 1 and 1,000 what is it? :"
     while stop == 0:
         a = int(input(q))
@@ -14,15 +14,18 @@ while game == 1:
             guesses = guesses + 1
         else:
             if a < cans:
-                print("Too low")
+                print("Too low, try again")
                 guesses = guesses + 1
             else:
                 if a > cans:
-                    print("Too high")
+                    print("Too high, try again")
                     guesses = guesses + 1
     print("You took " + str(guesses) + " guesses!")
-    if read_yesorno("Would you like to play again?"):
-        game = game + 1
+    yon = read_yesorno('Would you like another game? ')
+    ans = str(input(yon))
+    if yon == True:
+        print("Again!")
     else:
-        print("Thank you for playing")
+        print ("Thank you for playing!")
+
         
