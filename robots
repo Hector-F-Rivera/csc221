@@ -11,11 +11,14 @@ by = 5
 br = 5
 baller = Circle((bx, by), br)
 
-while bx < 645:
-    move_to(baller, (bx + 4 , by + 3))
-    bx = bx + 4
-    by = by + 3
-    sleep(0.02)
+key_text = Text("a", (320, 240), size=48)
+
+while True:
+    key = update_when('key_pressed')
+    remove_from_screen(key_text)
+    key_text = Text(key, (320, 240), size=48)
+    if key == 'q':     # See Sheet C if you don't understand this
+        break          # See Sheet L if you aren't sure what this means
 
 def place_player():
     Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
@@ -29,5 +32,7 @@ place_player()
 
 while not finished:
     move_player()
+
+
 
 end_graphics()         
