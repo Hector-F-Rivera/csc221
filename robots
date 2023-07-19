@@ -7,15 +7,6 @@ finished = False
 player_x = randint(0, 63)
 player_y = randint(0, 47)
 
-key_text = Text("a", (320, 240), size=48)
-
-while True:
-    key = update_when('key_pressed')
-    remove_from_screen(key_text)
-    key_text = Text(key, (320, 240), size=48)
-    if key == 'q':     # See Sheet C if you don't understand this
-        break          # See Sheet L if you aren't sure what this means
-
 def place_player():
     global baller
 
@@ -51,22 +42,23 @@ def move_player():
     elif key == '7':
         if player_x > 0:
             player_x -= 1
-        if player_y < 48:
+        if player_y < 47:
             player_y += 1
     
-    elif key == '8' and player_y < 48:
+    elif key == '8' and player_y < 47:
         player_y += 1
 
     elif key == '9':
         if player_x < 63:
             player_x += 1
-        if player_y > 48:
+        if player_y < 47:
             player_y += 1
     move_to(baller, (10 * player_x + 5, 10 * player_y + 5))
 
+place_player()
+
 while not finished:
     move_player()
-
 
 
 end_graphics()         
