@@ -1,7 +1,6 @@
 from gasp import * 
 from random import randint
 begin_graphics()
-finished = False
 player_x = randint(0, 63)
 player_y = randint(0, 47)
 navx = randint(0, 63)
@@ -58,6 +57,7 @@ def move_player():
             player_x += 1
         if player_y < 47:
             player_y += 1
+
     move_to(baller, (10 * player_x + 5, 10 * player_y + 5))
 
 def move_robot():
@@ -76,6 +76,8 @@ def move_robot():
 place_robot()
 
 place_player()
+
+finished = False
 
 while not finished:
     move_player()
