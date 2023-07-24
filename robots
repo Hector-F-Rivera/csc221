@@ -7,7 +7,6 @@ def place_robot():
     navx = randint(0, 63)
     navy = randint(0, 47)
     T1000 = Circle((10 * navx + 5, 10 * navy + 5), 5, color="red", filled=True)
-    print("Destroy all Humans")
 
 def place_player():
     global player_shape,player_x,player_y
@@ -79,12 +78,13 @@ def check_collisions():
         print ("You are Terminated")
         sleep (3.00)
 
-
 place_robot()
 
 place_player()
 
 finished = False
+
+print("Run For Your Life")
 
 while not finished:
     move_player()
