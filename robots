@@ -1,24 +1,22 @@
 from gasp import * 
 from random import randint
 begin_graphics()
-player_x = randint(0, 63)
-player_y = randint(0, 47)
-navx = randint(0, 63)
-navy = randint(0, 47)
 
 def place_robot():
-    global T1000
+    global T1000,navx,navy
+    navx = randint(0, 63)
+    navy = randint(0, 47)
     T1000 = Circle((10 * navx + 5, 10 * navy + 5), 5, color="red", filled=True)
     print("Destroy all Humans")
 
 def place_player():
-    global baller
-    
-    baller = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
-    print("Here I am!")
+    global player_shape,player_x,player_y
+    player_x = randint(0, 63)
+    player_y = randint(0, 47)
+    player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
 
 def move_player(): 
-    global player_x, player_y, baller
+    global player_x, player_y, player_shape
 
     key = update_when('key_pressed')
 
@@ -58,19 +56,18 @@ def move_player():
         if player_y < 47:
             player_y += 1
 
-    move_to(baller, (10 * player_x + 5, 10 * player_y + 5))
+    move_to(player_shape, (10 * player_x + 5, 10 * player_y + 5))
 
 def move_robot():
     global navx, navy, T1000, player_x, player_y
-
     if player_x > navx:
-        navx =+ 1
+        navx += 1
     elif player_x < navx:
         navx -= 1
     elif player_y > navy:
-        navy += navy
+        navy += 1
     elif player_y < navy:
-        navy -= navy
+        navy -= 1
     move_to(T1000, (10 * navx + 5, 10 * navy + 5))
 
 place_robot()
