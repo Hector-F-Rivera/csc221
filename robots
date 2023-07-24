@@ -1,9 +1,7 @@
 from gasp import * 
 from random import randint
-
 begin_graphics()
 finished = False
-
 player_x = randint(0, 63)
 player_y = randint(0, 47)
 navx = randint(0, 63)
@@ -11,13 +9,12 @@ navy = randint(0, 47)
 
 def place_robot():
     global T1000
-
     T1000 = Circle((10 * navx + 5, 10 * navy + 5), 5, color="red", filled=True)
     print("Destroy all Humans")
 
 def place_player():
     global baller
-
+    
     baller = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
     print("Here I am!")
 
@@ -76,8 +73,6 @@ def move_robot():
         navy -= navy
     move_to(T1000, (10 * navx + 5, 10 * navy + 5))
 
-
-
 place_robot()
 
 place_player()
@@ -86,5 +81,4 @@ while not finished:
     move_player()
     move_robot()
 
-
-end_graphics()         
+end_graphics()      
