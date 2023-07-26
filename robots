@@ -75,7 +75,7 @@ def check_collisions():
     global navx, navy,player_x, player_y, finished
     if navx == player_x and navy == player_y:
         finished = True
-        print ("You are Terminated")
+        key_text = Text("You are Terminated", (320, 240), size=48)
         sleep (3.00)
 
 place_robot()
@@ -84,7 +84,9 @@ place_player()
 
 finished = False
 
-print("Run For Your Life")
+key_text = Text("Run for your Life!", (320, 240), size=48)
+sleep(1)
+remove_from_screen(key_text)
 
 while not finished:
     move_player()
