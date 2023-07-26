@@ -1,91 +1,100 @@
 from gasp import * 
 from random import randint
+
+class Player:
+    pass
+
+class Robot:
+    pass
+
 begin_graphics()
 
 def place_robot():
-    global T1000,navx,navy
-    navx = randint(0, 63)
-    navy = randint(0, 47)
-    T1000 = Circle((10 * navx + 5, 10 * navy + 5), 5, color="red", filled=True)
+    global t1000
+    t1000 = Robot()
+    t1000.x = randint(0, 63)
+    t1000.y = randint(0, 47)
+    t1000.form = Circle((10 * t1000.x + 5, 10 * t1000.y + 5), 5, color="red", filled=True)
 
 def safe_player_place():
-    global player_shape,player_x,player_y, navx,navy
+    global player
+    player = Player()
     safety = 0
-    player_x = randint(0, 63)
-    player_y = randint(0, 47)
+    player.x = randint(0, 63)
+    player.y = randint(0, 47)
     while safety == 0:
-        if navx == player_x and navy == player_y:
-            player_x = randint(0, 63)
-            player_y = randint(0, 47)
+        if t1000.x == player.x and t1000.y == player.y:
+            player.x = randint(0, 63)
+            player.y = randint(0, 47)
         else:
-            player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
+            player.shape = Circle((10 * player.x + 5, 10 * player.y + 5), 5, filled=True)
             safety += 1
 
 def move_player(): 
-    global player_x, player_y, player_shape
+    global player
 
     key = update_when('key_pressed')
 
     while key == '5':
-        remove_from_screen(player_shape)
+        remove_from_screen(player.shape)
         safe_player_place()
         key = update_when('key_pressed')
 
-    if key == '6' and player_x < 63:
-        player_x += 1
+    if key == '6' and player.x < 63:
+        player.x += 1
 
     elif key == '3':
-        if player_x < 63:
-            player_x += 1
-        if player_y > 0:
-            player_y -= 1
+        if player.x < 63:
+            player.x += 1
+        if player.y > 0:
+            player.y -= 1
 
-    elif key == '2' and player_y > 0:
-        player_y -= 1
+    elif key == '2' and player.y > 0:
+        player.y -= 1
 
     elif key == '1':
-        if player_x > 0:
-            player_x -= 1
-        if player_y > 0:
-            player_y -= 1
+        if player.x > 0:
+            player.x -= 1
+        if player.y > 0:
+            player.y -= 1
 
-    elif key == '4' and player_x > 0:
-        player_x -= 1
+    elif key == '4' and player.x > 0:
+        player.x -= 1
     
     elif key == '7':
-        if player_x > 0:
-            player_x -= 1
-        if player_y < 47:
-            player_y += 1
+        if player.x > 0:
+            player.x -= 1
+        if player.y < 47:
+            player.y += 1
     
-    elif key == '8' and player_y < 47:
-        player_y += 1
+    elif key == '8' and player.y < 47:
+        player.y += 1
 
     elif key == '9':
-        if player_x < 63:
-            player_x += 1
-        if player_y < 47:
-            player_y += 1
+        if player.x < 63:
+            player.x += 1
+        if player.y < 47:
+            player.y += 1
 
-    move_to(player_shape, (10 * player_x + 5, 10 * player_y + 5))
+    move_to(player.shape, (10 * player.x + 5, 10 * player.y + 5))
 
 def move_robot():
-    global navx, navy, T1000, player_x, player_y
-    if player_x > navx:
-        navx += 1
-    elif player_x < navx:
-        navx -= 1
-    elif player_y > navy:
-        navy += 1
-    elif player_y < navy:
-        navy -= 1
-    move_to(T1000, (10 * navx + 5, 10 * navy + 5))
+    global t1000
+    if player.x > t1000.x:
+        t1000.x += 1
+    elif player.x < t1000.x:
+        t1000.x -= 1
+    elif player.y > t1000.y:
+        t1000.y += 1
+    elif player.y < t1000.y:
+        t1000.y -= 1
+    move_to(t1000.form, (10 * t1000.x + 5, 10 * t1000.y + 5))
 
 finished = False
 
 def crash():
-    global navx, navy,player_x, player_y, finished
-    if navx == player_x and navy == player_y:
+    global finished
+    if t1000.x == player.x and t1000.y == player.y:
         finished = True
     else:
         finished = False
@@ -94,7 +103,7 @@ def check_collisions():
     global finished
     crash()
     if finished == True:
-        key_text = Text("You are Terminated", (320, 240), size=48)
+        key_text = Text("You are Terminated", (320, 240), size=48, color="red")
         sleep (3.00)
 
 place_robot()
