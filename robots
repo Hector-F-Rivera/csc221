@@ -30,13 +30,7 @@ def safe_player_place():
     safety = 0
     player.x = randint(0, 63)
     player.y = randint(0, 47)
-    while safety == 0:
-        if t1000.x == player.x and t1000.y == player.y:
-            player.x = randint(0, 63)
-            player.y = randint(0, 47)
-        else:
-            player.shape = Circle((10 * player.x + 5, 10 * player.y + 5), 5, filled=True)
-            safety += 1
+    player.shape = Circle((10 * player.x + 5, 10 * player.y + 5), 5, filled=True)
 
 def move_player(): 
     global player
@@ -109,7 +103,7 @@ def crash(player,terminators):
 
 def check_collisions():
     global finished
-    crash()
+    crash(player, terminators)
     if finished == True:
         key_text = Text("You are Terminated", (320, 240), size=48, color="red")
         sleep (3.00)
@@ -126,7 +120,7 @@ remove_from_screen(key_text)
 
 while not finished:
     move_player()
-    move_robot()
+    #move_robot()
     check_collisions()
 
 end_graphics()      
