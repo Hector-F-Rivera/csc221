@@ -12,7 +12,8 @@ begin_graphics()
 numbots = 10
 
 def place_robots():
-    global terminators
+    global terminators,t1000
+    terminators = []
     t1000 = Robot()
     for i in range(numbots):
         t1000.x = randint(0, 63)
