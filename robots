@@ -9,12 +9,16 @@ class Robot:
 
 begin_graphics()
 
-def place_robot():
-    global t1000
+numbots = 10
+
+def place_robots():
+    global terminators
     t1000 = Robot()
-    t1000.x = randint(0, 63)
-    t1000.y = randint(0, 47)
-    t1000.form = Circle((10 * t1000.x + 5, 10 * t1000.y + 5), 5, color="red", filled=True)
+    for i in range(numbots):
+        t1000.x = randint(0, 63)
+        t1000.y = randint(0, 47)
+        t1000.form = Circle((10 * t1000.x + 5, 10 * t1000.y + 5), 5, color="red", filled=True)
+        terminators.append(t1000)
 
 def safe_player_place():
     global player
@@ -106,7 +110,7 @@ def check_collisions():
         key_text = Text("You are Terminated", (320, 240), size=48, color="red")
         sleep (3.00)
 
-place_robot()
+place_robots()
 
 safe_player_place()
 
