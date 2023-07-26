@@ -10,15 +10,17 @@ def place_robot():
 
 def safe_player_place():
     global player_shape,player_x,player_y, navx,navy
-
+    safety = 0
     player_x = randint(0, 63)
     player_y = randint(0, 47)
-    if navx == player_x and navy == player_y:
-        player_x = randint(0, 63)
-        player_y = randint(0, 47)
-    else:
-        player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
-
+    while safety == 0:
+        if navx == player_x and navy == player_y:
+            player_x = randint(0, 63)
+            player_y = randint(0, 47)
+        else:
+            player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
+            safety += 1
+            
 def move_player(): 
     global player_x, player_y, player_shape
 
