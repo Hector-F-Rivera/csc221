@@ -20,11 +20,16 @@ def safe_player_place():
         else:
             player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
             safety += 1
-            
+
 def move_player(): 
     global player_x, player_y, player_shape
 
     key = update_when('key_pressed')
+
+    while key == '5':
+        remove_from_screen(player_shape)
+        safe_player_place()
+        key = update_when('key_pressed')
 
     if key == '6' and player_x < 63:
         player_x += 1
