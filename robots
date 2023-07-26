@@ -8,11 +8,16 @@ def place_robot():
     navy = randint(0, 47)
     T1000 = Circle((10 * navx + 5, 10 * navy + 5), 5, color="red", filled=True)
 
-def place_player():
-    global player_shape,player_x,player_y
+def safe_player_place():
+    global player_shape,player_x,player_y, navx,navy
+
     player_x = randint(0, 63)
     player_y = randint(0, 47)
-    player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
+    if navx == player_x and navy == player_y:
+        player_x = randint(0, 63)
+        player_y = randint(0, 47)
+    else:
+        player_shape = Circle((10 * player_x + 5, 10 * player_y + 5), 5, filled=True)
 
 def move_player(): 
     global player_x, player_y, player_shape
@@ -87,7 +92,7 @@ def check_collisions():
 
 place_robot()
 
-place_player()
+safe_player_place()
 
 finished = False
 
