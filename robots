@@ -71,10 +71,17 @@ def move_robot():
 
 finished = False
 
-def check_collisions():
+def crash():
     global navx, navy,player_x, player_y, finished
     if navx == player_x and navy == player_y:
         finished = True
+    else:
+        finished = False
+
+def check_collisions():
+    global finished
+    crash()
+    if finished == True:
         key_text = Text("You are Terminated", (320, 240), size=48)
         sleep (3.00)
 
