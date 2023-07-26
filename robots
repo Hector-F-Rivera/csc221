@@ -12,14 +12,17 @@ begin_graphics()
 numbots = 10
 
 def place_robots():
-    global terminators,t1000
+    global terminators
+
     terminators = []
-    t1000 = Robot()
-    for i in range(numbots):
-        t1000.x = randint(0, 63)
+
+    while len(terminators) < numbots:
+        t1000 = Robot()
+        t1000.x = randint(0, 47)
         t1000.y = randint(0, 47)
-        t1000.form = Circle((10 * t1000.x + 5, 10 * t1000.y + 5), 5, color="red", filled=True)
-        terminators.append(t1000)
+        if not crash(t1000,terminators):
+            t1000.form = Box((10 * t1000.x + 5, 10 * t1000.y + 5), 10, 10, color="red", filled=True)
+            terminators.append(t1000)
 
 def safe_player_place():
     global player
@@ -97,12 +100,12 @@ def move_robot():
 
 finished = False
 
-def crash():
-    global finished
-    if t1000.x == player.x and t1000.y == player.y:
-        finished = True
-    else:
-        finished = False
+def crash(player,terminators):
+    for player in terminators:
+        if terminators.x == player.x and terminators.y == player.y:
+            return True
+        else:
+            return False
 
 def check_collisions():
     global finished
