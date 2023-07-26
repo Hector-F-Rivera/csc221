@@ -101,8 +101,8 @@ def move_robot():
 finished = False
 
 def crash(player,terminators):
-    for player in terminators:
-        if terminators.x == player.x and terminators.y == player.y:
+    for t1000 in terminators:
+        if t1000.x == player.x and t1000.y == player.y:
             return True
         else:
             return False
