@@ -106,12 +106,11 @@ def crash(player,terminators):
             return False
 
 def check_collisions():
-    global finished
-    crash(player, terminators)
-    if crash == True:
+    global finished, terminators
+    if crash(player, terminators):
         key_text = Text("You are Terminated", (320, 240), size=48, color="red")
         sleep (3.00)
-        finished == True
+        return finished == True
 
 place_robots()
 
